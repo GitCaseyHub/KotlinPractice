@@ -8,14 +8,15 @@ import javax.swing.JFrame
 import javax.swing.JTextField
 
 class DontKnow: JFrame(), ActionListener {
-    private var button : JButton = JButton("Randomize Text")
-    var field : JTextField = JTextField("")
+    private var button : JButton = JButton("Randomize Entered Text")
+    private var field : JTextField = JTextField("")
 
     init{
         this.layout = BorderLayout()
         this.setBounds(100, 100, 500, 100)
         this.isVisible = true
         this.title="Randomize Entered Text"
+        this.defaultCloseOperation = EXIT_ON_CLOSE
 
         this.add(field, BorderLayout.CENTER)
         this.add(button, BorderLayout.SOUTH)
@@ -23,8 +24,7 @@ class DontKnow: JFrame(), ActionListener {
     }
     override fun actionPerformed(e: ActionEvent) {
         if(e.source==button) {
-            val returnText: String =
-                if (field.text.isNotBlank()) randomizeText(field.text) else "You can't randomize nothing"
+            val returnText: String = (if (field.text.isNotBlank()) randomizeText(field.text) else "You can't randomize nothing")
             field.text=returnText
         }
     }
