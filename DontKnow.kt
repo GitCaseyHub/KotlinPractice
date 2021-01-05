@@ -32,8 +32,8 @@ class DontKnow: JFrame(), ActionListener {
     private fun randomizeText(text: String): String{
         var newString:String? = ""
         val nums: MutableList<Int> = mutableListOf()
+        var randomIndex:Int? = null
         for (x:Int in text.indices){
-            var randomIndex:Int? = null
             while(nums.contains(randomIndex) || randomIndex==null) {
                 randomIndex = (0 until text.length).random()
             }
