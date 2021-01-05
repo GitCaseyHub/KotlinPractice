@@ -30,19 +30,15 @@ class DontKnow: JFrame(), ActionListener {
     }
 
     private fun randomizeText(text: String): String{
-        val charArray: CharArray = text.toCharArray()
         var newString:String? = ""
         val nums: MutableList<Int> = mutableListOf()
-        var counter=0
-        val range: Int = text.length
-        while(counter<text.length){
-            var randomIndex=69
-            while(nums.contains(randomIndex) || randomIndex==69) {
-                randomIndex = (0 until range).random()
+        for (x:Int in 0 until text.length){
+            var randomIndex:Int? = null
+            while(nums.contains(randomIndex) || randomIndex==null) {
+                randomIndex = (0 until text.length).random()
             }
             nums.add(randomIndex)
-            newString+=charArray[randomIndex]
-            counter++
+            newString+=text.toCharArray()[randomIndex]
         }
         return newString.toString()
     }
