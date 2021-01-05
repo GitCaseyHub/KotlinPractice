@@ -12,6 +12,7 @@ class DontKnow: JFrame(), ActionListener {
     private var field : JTextField = JTextField("")
 
     init{
+        println("none")
         this.layout = BorderLayout()
         this.setBounds(100, 100, 500, 100)
         this.isVisible = true
@@ -49,4 +50,3 @@ class DontKnow: JFrame(), ActionListener {
             DontKnow()
         }
     }
-}
