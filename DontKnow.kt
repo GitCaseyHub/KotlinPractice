@@ -21,8 +21,8 @@ class DontKnow: JFrame(), ActionListener {
         this.add(button, BorderLayout.SOUTH)
             button.addActionListener(this)
     }
-    override fun actionPerformed(e: ActionEvent?) {
-        if(e?.source==button) {
+    override fun actionPerformed(e: ActionEvent) {
+        if(e.source==button) {
             val returnText: String =
                 if (field.text.isNotBlank()) randomizeText(field.text) else "You can't randomize nothing"
             println(returnText)
@@ -32,7 +32,7 @@ class DontKnow: JFrame(), ActionListener {
     private fun randomizeText(text: String): String{
         var newString:String? = ""
         val nums: MutableList<Int> = mutableListOf()
-        for (x:Int in 0 until text.length){
+        for (x:Int in text.indices){
             var randomIndex:Int? = null
             while(nums.contains(randomIndex) || randomIndex==null) {
                 randomIndex = (0 until text.length).random()
