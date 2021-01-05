@@ -8,7 +8,7 @@ import javax.swing.JFrame
 import javax.swing.JTextField
 
 class DontKnow: JFrame(), ActionListener {
-    var button : JButton = JButton("Randomize Text")
+    private var button : JButton = JButton("Randomize Text")
     var field : JTextField = JTextField("")
 
     init{
@@ -19,7 +19,7 @@ class DontKnow: JFrame(), ActionListener {
 
         this.add(field, BorderLayout.CENTER)
         this.add(button, BorderLayout.SOUTH)
-            button.addActionListener(this)
+        button.addActionListener(this)
     }
     override fun actionPerformed(e: ActionEvent) {
         if(e.source==button) {
