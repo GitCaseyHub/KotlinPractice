@@ -22,14 +22,10 @@ class DontKnow: JFrame(), ActionListener {
             button.addActionListener(this)
     }
     override fun actionPerformed(e: ActionEvent?) {
-        if(e?.source==button){
-            if(field.text != "") {
-                val enteredText: String = field.text
-                println(randomizeText(enteredText))
-            }
-
-            else
-                println("You can't randomize nothing")
+        if(e?.source==button) {
+            val returnText: String =
+                if (field.text.isNotBlank()) randomizeText(field.text) else "You can't randomize nothing"
+            println(returnText)
         }
     }
 
