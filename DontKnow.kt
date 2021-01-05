@@ -25,7 +25,7 @@ class DontKnow: JFrame(), ActionListener {
         if(e.source==button) {
             val returnText: String =
                 if (field.text.isNotBlank()) randomizeText(field.text) else "You can't randomize nothing"
-            println(returnText)
+            field.text=returnText
         }
     }
 
@@ -35,7 +35,7 @@ class DontKnow: JFrame(), ActionListener {
         var randomIndex:Int? = null
         for (x:Int in text.indices){
             while(nums.contains(randomIndex) || randomIndex==null) {
-                randomIndex = (0 until text.length).random()
+                randomIndex = (text.indices).random()
             }
             nums.add(randomIndex)
             newString+=text.toCharArray()[randomIndex]
